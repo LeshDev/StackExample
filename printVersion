@@ -12,14 +12,14 @@ public class Main {
         listCoins();
     }
 
-    public static void createCoins(){
+    public static void createCoins(){                 // Creating 20 different coins from 10 Cent to 2€
         for(int i=0; i < 20; i++){
             int finalCoin = (int)(Math.random() * Object.munzen.length);
             sZahl.push(new Object(Object.munzen[finalCoin]));
         }
     }
 
-    public static void listCoins() {
+    public static void listCoins() {                  // No Exception if sortCoins is not activated
         int totalCoins = 0;
         for (int i = 0; i < 21; i++) {
             totalCoins++;
@@ -27,6 +27,23 @@ public class Main {
             sZahl.pop();
         }
         System.out.println("Total Coins: " + totalCoins);
+    }
+    
+    public static void sortCoins() {                  // No Exception if listCoins is not activated
+        int stack10 = 0;
+        int stack20 = 0;
+        int stack50 = 0;
+        int stack1 = 0;
+        int stack2 = 0;
+        for(int i = 0; i<20;i++){
+            if(sZahl.top().zahl == 10) stack10++;
+            if(sZahl.top().zahl == 20) stack20++;
+            if(sZahl.top().zahl == 50) stack50++;
+            if(sZahl.top().zahl == 1) stack1++;
+            if(sZahl.top().zahl == 2) stack2++;
+            sZahl.pop();
+        }
+        System.out.println("Stack size: \n 10 Cent: " + stack10 + "\n 20 Cent: " + stack20 + "\n 50 Cent: " + stack50 + "\n 1 Euro: " + stack1 + "\n 2 Euro: " + stack2);
     }
 }
 
